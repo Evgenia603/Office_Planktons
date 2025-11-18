@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Офисные планктоны</title>
+    <link rel="stylesheet" href="st.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="white-bg">Офисные планктоны</h1>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <form name="forma1">
+            <table>
+                <caption>Форма регистрации</caption>
+                <tr>
+                    <td><label for="name">Имя</label></td>
+                    <td><input type="text" id="name" name="name" size="25"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">E-mail</label></td>
+                    <td><input type="text" id="email" name="e-mail" size="25"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Пароль</label></td>
+                    <td><input type="password" id="password" name="password" size="25"></td>
+                </tr>
+                <tr>
+                    <td><label for="password2">Повтор пароля</label></td>
+                    <td><input type="password" id="password2" name="password2" size="25"></td>
+                </tr>
+                <tr>
+                    <td>Пол</td>
+                    <td>
+                        <input type="radio" name="sex" value="man" checked> мужской
+                        <input type="radio" name="sex" value="woman"> женский
+                    </td>
+                </tr>
+                <tr>
+                    <td>Возраст</td>
+                    <td>
+                        <select name="age" size="4">
+                            <option value="1">меньше 14</option>
+                            <option value="2">14-18</option>
+                            <option value="3" selected>18-25</option>
+                            <option value="4">25-35</option>
+                            <option value="5">35-45</option>
+                            <option value="6">45-55</option>
+                            <option value="7">55 и более</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Как вам сайт?</td>
+                    <td><textarea cols="30" rows="3" wrap="physical"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Отправить">
+                        <input type="reset" value="Очистить">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <nav>
+        <ul style="font-size: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 3px;">
+                <a href="1.html" style="background-color: white; display: inline;">Кто такие "Офисные планктоны"</a>
+                <br />
+                <a href="2.html" style="background-color: white; display: inline;">Причины появления "Офисных планктонов"</a>
+                <br />
+                <a href="3.html" style="background-color: white; display: inline;">Как избавиться в офисе от "Офисных планктонов"?</a>
+                <br />
+                <a href="4.html" style="background-color: white; display: inline;">Интересные факты</a>
+                <br />
+                <a href="5.html" style="background-color: white; display: inline;">Файлы</a>
+                <br />
+                <a href="fam.html" style="background-color: white; display: inline;">Фреймы</a>
+                <br />
+            </div>
+        </ul>
+    </nav>
+
+
+    <!-- JavaScript секция -->
+    <div class="js-section">
+        <h2>🎯 Тест: Насколько ты офисный планктон?</h2>
+
+        <div id="questions" style="margin: 20px 0;">
+            <p><strong>1. Сколько чашек кофе ты выпиваешь за день?</strong></p>
+            <input type="radio" name="coffee" value="1"> 1-2<br>
+            <input type="radio" name="coffee" value="2"> 3-4<br>
+            <input type="radio" name="coffee" value="3"> 5+<br><br>
+
+            <p><strong>2. Часто ли ты залипаешь в соцсетях на работе?</strong></p>
+            <input type="radio" name="social" value="1"> Да<br>
+            <input type="radio" name="social" value="0"> Нет<br><br>
+
+            <p><strong>3. Ты делаешь вид, что работаешь, когда начальник рядом?</strong></p>
+            <input type="radio" name="pretend" value="1"> Да<br>
+            <input type="radio" name="pretend" value="0"> Нет<br><br>
+
+            <p><strong>4. Ты считаешь минуты до конца рабочего дня?</strong></p>
+            <input type="radio" name="count" value="1"> Да<br>
+            <input type="radio" name="count" value="0"> Нет<br><br>
+
+            <p><strong>5. Как часто ты опаздываешь на работу?</strong></p>
+            <input type="radio" name="late" value="0"> Никогда<br>
+            <input type="radio" name="late" value="1"> Иногда<br>
+            <input type="radio" name="late" value="2"> Часто<br><br>
+
+            <p><strong>6. Что ты делаешь в обеденный перерыв?</strong></p>
+            <input type="radio" name="lunch" value="0"> Быстро ем и возвращаюсь к работе<br>
+            <input type="radio" name="lunch" value="1"> Отдыхаю положенное время<br>
+            <input type="radio" name="lunch" value="2"> Растягиваю перерыв подольше<br><br>
+
+            <button onclick="calculateResult()">Узнать результат</button>
+        </div>
+
+        <div id="result" class="result-box"></div>
+    </div>
+
+    <script>
+        function calculateResult() {
+        let resultDiv = document.getElementById('result');
+
+        // Получаем ответы
+        let coffee = document.querySelector('input[name="coffee"]:checked');
+        let social = document.querySelector('input[name="social"]:checked');
+        let pretend = document.querySelector('input[name="pretend"]:checked');
+        let count = document.querySelector('input[name="count"]:checked');
+
+        // Проверяем, что все ответы выбраны
+        if (!coffee || !social || !pretend || !count) {
+        alert("Ответь на все вопросы!");
+        return;
+        }
+
+        // Считаем баллы
+        let score = 0;
+        score += parseInt(coffee.value);
+        score += parseInt(social.value);
+        score += parseInt(pretend.value);
+        score += parseInt(count.value);
+
+        // Определяем результат
+        let result = "";
+        if (score >= 5) {
+        result = "🎯 Ты - супер-планктон! Расслабляться - твое призвание!";
+        } else if (score >= 3) {
+        result = "📊 Ты - обычный офисный планктон";
+        } else if (score >= 2) {
+        result = "💪 Ты - почти работник";
+        } else {
+        result = "🚀 Ты - трудоголик! Работать - твой конек!";
+        }
+
+        // Показываем результат
+        resultDiv.innerHTML = `
+        <h3>Твой результат:</h3>
+        <p>Набрано баллов: ${score} из 6</p>
+        <h3>${result}</h3>
+        <button onclick="resetTest()">Пройти еще раз</button>
+        `;
+        }
+
+        function resetTest() {
+        // Очищаем все радио-кнопки
+        let radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(radio => radio.checked = false);
+
+        // Очищаем результат
+        document.getElementById('result').innerHTML = "";
+        }
+    </script>
+
+    <div class="js-section">
+        <h2>📈 Статистика планктонов</h2>
+
+        <div style="margin: 20px 0;">
+            <input type="text" id="person" placeholder="Имя сотрудника" style="margin: 5px;">
+            <input type="number" id="tasks" placeholder="Выполнено задач" style="margin: 5px;">
+            <button onclick="addToArray()">Добавить в массив</button>
+            <button onclick="calcStats()">Вычислить статистику</button>
+        </div>
+
+        <div id="arrayData" class="result-box"></div>
+    </div>
+
+    <script>
+        // Массив для хранения данных
+        let workers = [];
+
+        function addToArray() {
+        let person = document.getElementById('person').value;
+        let tasks = document.getElementById('tasks').value;
+
+        if(person && tasks) {
+        // Добавляем объект в массив
+        workers.push({
+        name: person,
+        tasks: parseInt(tasks)
+        });
+
+        showArray();
+
+        // Очищаем поля
+        document.getElementById('person').value = '';
+        document.getElementById('tasks').value = '';
+        }
+        }
+
+        function showArray() {
+        let div = document.getElementById('arrayData');
+        let html = '<h3>Данные в массиве:</h3>';
+
+        // Проходим по массиву и показываем все элементы
+        for(let i = 0; i < workers.length; i++) {
+        html += `<p>${workers[i].name}: ${workers[i].tasks} задач</p>`;
+        }
+
+        div.innerHTML = html;
+        }
+
+        function calcStats() {
+        if(workers.length === 0) {
+        alert('Массив пустой!');
+        return;
+        }
+
+        // Вычисления по массиву
+        let totalWorkers = workers.length;
+        let totalTasks = 0;
+        let maxTasks = 0;
+        let minTasks = 1000;
+
+        // Проходим по всему массиву и считаем
+        for(let i = 0; i < workers.length; i++) {
+        totalTasks += workers[i].tasks;
+
+        if(workers[i].tasks > maxTasks) {
+        maxTasks = workers[i].tasks;
+        }
+
+        if(workers[i].tasks < minTasks) {
+        minTasks = workers[i].tasks;
+        }
+        }
+
+        // Среднее значение
+        let averageTasks = totalTasks / totalWorkers;
+
+        // Показываем результаты вычислений
+        let div = document.getElementById('arrayData');
+        div.innerHTML += `
+        <div style="background: #e3f2fd; padding: 15px; margin-top: 10px;">
+        <h4>Результаты вычислений:</h4>
+        <p>Всего сотрудников: ${totalWorkers}</p>
+        <p>Сумма всех задач: ${totalTasks}</p>
+        <p>Среднее количество задач: ${averageTasks.toFixed(1)}</p>
+        <p>Максимум задач: ${maxTasks}</p>
+        <p>Минимум задач: ${minTasks}</p>
+        </div>
+        `;
+        }
+    </script>
+</body>
+</html>
