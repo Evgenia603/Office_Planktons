@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Интересные факты</title>
+    <link rel="stylesheet" href="st.css">
+    <style>
+        .main-content {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .gif-container {
+            flex-shrink: 0;
+        }
+
+        .gif-image {
+            width: 400px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .center-table {
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+            .custom-table th {
+                background: #6c757d;
+                color: white;
+                padding: 12px;
+                text-align: left;
+            }
+
+            .custom-table td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .custom-table tr:nth-child(even) {
+                background: #f9f9f9;
+            }
+    </style>
+</head>
+<body>
+    <header class="header-container">
+        <a href="index.html" class="home-link">🏠</a>
+        <h1>Интересные факты</h1>
+    </header>
+
+    <!-- Основной контент с картинкой и текстом -->
+    <div class="main-content">
+        <!-- Картинка слева -->
+        <div class="gif-container">
+            <img src="C:\Users\admin\Desktop\Офисные планктоны\gge2759e37ea.gif" alt="Офисный мем" class="gif-image">
+            <p style="text-align: center; margin-top: 10px;"><strong>Офисный мем</strong></p>
+        </div>
+
+        <!-- Текст справа -->
+        <div class="text-content">
+            <h2>Интересные факты:</h2>
+            <ul>
+                <li>70% сотрудников хотя бы раз испытывали на себе чувство «Офисный планктон»</li>
+                <li>Мотивация растёт на 40% при внедрении новых задач</li>
+                <li>Планктоны чаще появляются при плохом менеджменте</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Таблица по центру -->
+    <div class="center-table">
+        <h3 style="text-align: center;">Статистика офисных привычек</h3>
+        <table class="custom-table">
+            <tr>
+                <th>Привычка</th>
+                <th>Процент сотрудников</th>
+                <th>Влияние на работу</th>
+            </tr>
+            <tr>
+                <td>Постоянная проверка соцсетей</td>
+                <td>65%</td>
+                <td>✅ Сильно снижает</td>
+            </tr>
+            <tr>
+                <td>Частые кофе-брейки</td>
+                <td>45%</td>
+                <td>▲ Умеренно снижает</td>
+            </tr>
+            <tr>
+                <td>Опоздания на работу</td>
+                <td>30%</td>
+                <td>✅ Сильно снижает</td>
+            </tr>
+            <tr>
+                <td>Длительные обеденные перерывы</td>
+                <td>25%</td>
+                <td>▲ Умеренно снижает</td>
+            </tr>
+            <tr>
+                <td>Личные разговоры по телефону</td>
+                <td>55%</td>
+                <td>✅ Сильно снижает</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
